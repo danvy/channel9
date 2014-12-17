@@ -144,7 +144,7 @@ function Ch9Download()
 	    }
     }
 }
-"Channel9 Content Downloader by Alex Danvy @danvy"
+"Channel9 Content Downloader 1.1 by Alex Danvy @danvy"
 #Event
 "Select the event on Channel9:"
 $events = New-Ch9Events
