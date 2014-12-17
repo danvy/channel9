@@ -98,6 +98,15 @@ function New-Ch9Events()
     $event.Editions += $edition
     $events += $event
     
+    $event = New-Ch9Event "Visual Studio"
+    $edition = New-Ch9EventEdition "Connect(); Microsoft Visual Studio vNext & Azure" "Connect2014" "http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Cross-platform development" "Cross-platform2014" "http://channel9.msdn.com/Events/Visual-Studio/Cross-platform-development/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Visual Studio 2013 Launch" "VSLaunch2013" "http://channel9.msdn.com/Events/Visual-Studio/Launch-2013/RSS/"
+    $event.Editions += $edition
+    $events += $event
+
     Return $events
 }
 <#
@@ -135,7 +144,7 @@ function Ch9Download()
 	    }
     }
 }
-"Channel9 Content Downloader"
+"Channel9 Content Downloader by Alex Danvy @danvy"
 #Event
 "Select the event on Channel9:"
 $events = New-Ch9Events
