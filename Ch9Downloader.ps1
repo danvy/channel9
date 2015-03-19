@@ -76,18 +76,27 @@ function New-Ch9Event()
 function New-Ch9Events()
 {
     $events = @()
+
     $event = New-Ch9Event "Build"
-    $edition = New-Ch9EventEdition "Build 2011" "Build2011" "http://s.ch9.ms/Events/Build/2011/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Build 2012" "Build2012" "http://s.ch9.ms/Events/Build/2012/RSS/"
+    $edition = New-Ch9EventEdition "Build 2014" "Build2014" "http://s.ch9.ms/Events/Build/2014/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2013" "Build2013" "http://s.ch9.ms/Events/Build/2013/RSS/"
     $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Build 2014" "Build2014" "http://s.ch9.ms/Events/Build/2014/RSS/"
+    $edition = New-Ch9EventEdition "Build 2012" "Build2012" "http://s.ch9.ms/Events/Build/2012/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Build 2011" "Build2011" "http://s.ch9.ms/Events/Build/2011/RSS/"
     $event.Editions += $edition
     $events += $event
 
     $event = New-Ch9Event "TechEd"
+    $edition = New-Ch9EventEdition "TechEd Europe 2014" "TechEdEurope2014" "http://channel9.msdn.com/Events/TechEd/Europe/2014/RSS"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "TechEd Australia 2014" "TechEdAustralia2014" "http://channel9.msdn.com/Events/TechEd/Australia/2014/RSS"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "TechEd New Zealand 2014" "TechEdNewZealand2014" "http://channel9.msdn.com/Events/TechEd/NewZealand/2014/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "TechEd North America  2014" "TechEdNorthAmerica2014" "http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "TechEd New Zealand 2013" "TechEdNewZealand2013" "http://channel9.msdn.com/Events/TechEd/NewZealand/2013/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "TechEd Australia 2013" "TechEdAustralia2013" "http://channel9.msdn.com/Events/TechEd/Australia/2013/RSS/"
@@ -106,6 +115,10 @@ function New-Ch9Events()
     $edition = New-Ch9EventEdition "Visual Studio 2013 Launch" "VSLaunch2013" "http://channel9.msdn.com/Events/Visual-Studio/Launch-2013/RSS/"
     $event.Editions += $edition
     $events += $event
+
+    $event = New-Ch9Event "WinHEC"
+    $edition = New-Ch9EventEdition "WinHEC Shenzhen March 18-19" "WinHEC2015" "http://channel9.msdn.com/Events/WinHEC/2015/RSS"
+    $event.Editions += $edition
 
     Return $events
 }

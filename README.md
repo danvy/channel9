@@ -6,6 +6,7 @@ This PowerShell script will download to your Downloads folder of your user profi
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new
+1.2 Updated events (WinHEC & TechEd)
 1.1 Added Visual Studio events to the list http://channel9.msdn.com/Events/Visual-Studio
 1.0 Initial release
 
