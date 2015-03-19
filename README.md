@@ -2,12 +2,15 @@
 
 ##Introduction
 If just like me, you love the content published on Channel9 and you have a very long way to get back home, you will appreciate to take that time to watch the awesome sessions content from http://channel9.msdn.com/events/ with you.
+
 This PowerShell script will download to your Downloads folder of your user profile file://%userprofile%/downloads/ all the videos and slides of the event of your choice, using the format that fit your needs.
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new?
 1.2 Updated events (WinHEC & TechEd)
+
 1.1 Added Visual Studio events to the list http://channel9.msdn.com/Events/Visual-Studio
+
 1.0 Initial release
 
 ##Q&A
