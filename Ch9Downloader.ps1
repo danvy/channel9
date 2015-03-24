@@ -107,6 +107,11 @@ function New-Ch9Events()
     $event.Editions += $edition
     $events += $event
 
+    $event = New-Ch9Event "Various"
+    $edition = New-Ch9EventEdition "Developer's Guide to Windows 10 Preview" "DevGuideWin10Preview" "https://channel9.msdn.com/Series/Developers-Guide-to-Windows-10-Preview/RSS/"
+    $event.Editions += $edition
+	$events += $event
+	
     Return $events
 }
 <#
