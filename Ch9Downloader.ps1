@@ -116,15 +116,17 @@ function New-Ch9Events()
     $event.Editions += $edition
     $events += $event
 
-$event = New-Ch9Event "WinHEC"
+    $event = New-Ch9Event "WinHEC"
     $edition = New-Ch9EventEdition "WinHEC Shenzhen March 18-19" "WinHEC2015" "http://channel9.msdn.com/Events/WinHEC/2015/RSS"
     $event.Editions += $edition
     $events += $event
-    $event = New-Ch9Event "Various"
+    
+	$event = New-Ch9Event "Various"
     $edition = New-Ch9EventEdition "Developer's Guide to Windows 10 Preview" "DevGuideWin10Preview" "https://channel9.msdn.com/Series/Developers-Guide-to-Windows-10-Preview/RSS/"
     $event.Editions += $edition
 	$events += $event
-    Return $events
+    
+	Return $events
 }
 <#
 .SYNOPSIS
@@ -161,7 +163,7 @@ function Ch9Download()
 	    }
     }
 }
-"Channel9 Content Downloader 1.1 by Alex Danvy @danvy"
+"Channel9 Content Downloader 1.3 by Alex Danvy @danvy"
 #Event
 "Select the event on Channel9:"
 $events = New-Ch9Events
