@@ -89,9 +89,9 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "TechEd"
-    $edition = New-Ch9EventEdition "TechEd Europe 2014" "TechEdEurope2014" "http://channel9.msdn.com/Events/TechEd/Europe/2014/RSS"
+    $edition = New-Ch9EventEdition "TechEd Europe 2014" "TechEdEurope2014" "http://channel9.msdn.com/Events/TechEd/Europe/2014/RSS/"
     $event.Editions += $edition
-    $edition = New-Ch9EventEdition "TechEd Australia 2014" "TechEdAustralia2014" "http://channel9.msdn.com/Events/TechEd/Australia/2014/RSS"
+    $edition = New-Ch9EventEdition "TechEd Australia 2014" "TechEdAustralia2014" "http://channel9.msdn.com/Events/TechEd/Australia/2014/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "TechEd New Zealand 2014" "TechEdNewZealand2014" "http://channel9.msdn.com/Events/TechEd/NewZealand/2014/RSS/"
     $event.Editions += $edition
@@ -117,7 +117,7 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "WinHEC"
-    $edition = New-Ch9EventEdition "WinHEC Shenzhen March 18-19" "WinHEC2015" "http://channel9.msdn.com/Events/WinHEC/2015/RSS"
+    $edition = New-Ch9EventEdition "WinHEC Shenzhen March 18-19" "WinHEC2015" "http://channel9.msdn.com/Events/WinHEC/2015/RSS/"
     $event.Editions += $edition
     $events += $event
     
