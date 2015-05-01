@@ -78,6 +78,8 @@ function New-Ch9Events()
     $events = @()
 
     $event = New-Ch9Event "Build"
+    $edition = New-Ch9EventEdition "Build 2015" "Build2014" "http://s.ch9.ms/Events/Build/2015/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2014" "Build2014" "http://s.ch9.ms/Events/Build/2014/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2013" "Build2013" "http://s.ch9.ms/Events/Build/2013/RSS/"
@@ -163,7 +165,8 @@ function Ch9Download()
 	    }
     }
 }
-"Channel9 Content Downloader 1.3 by Alex Danvy @danvy"
+"Channel9 Content Downloader 1.4 by Alex Danvy @danvy"
+"Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"
 $events = New-Ch9Events
