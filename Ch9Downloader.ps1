@@ -144,7 +144,9 @@ function Ch9Download()
     [IO.Directory]::CreateDirectory($dest) | Out-Null
     $re = ':|\?|/|\\|\||\*|<|>|"|\.'
     "Retrieving the RSS Feed (" + $RssLink + ")"
-    $rss = ([xml](new-object net.webclient).downloadstring($RssLink))
+    $wc = New-Object System.Net.WebClient
+    $wc.Encoding = [System.Text.Encoding]::UTF8
+    $rss = ([xml]$wc.downloadstring($RssLink))
     "" + $rss.rss.channel.item.Count + " files to download."
     foreach($item in $rss.rss.channel.item)
     {
