@@ -109,6 +109,10 @@ function New-Ch9Events()
     $event.Editions += $edition
     $events += $event
     
+    $event = New-Ch9Event "Ignite"
+    $edition = New-Ch9EventEdition "Ignite 2015" "Ignite2015" "    http://channel9.msdn.com/Events/Ignite/2015/RSS/"
+    $event.Editions += $edition
+
     $event = New-Ch9Event "Visual Studio"
     $edition = New-Ch9EventEdition "Connect(); Microsoft Visual Studio vNext & Azure" "Connect2014" "http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/RSS/"
     $event.Editions += $edition
