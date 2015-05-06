@@ -171,7 +171,7 @@ function Ch9Download()
 	    }
     }
 }
-"Channel9 Content Downloader 1.4 by Alex Danvy @danvy"
+"Channel9 Content Downloader 1.5 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"

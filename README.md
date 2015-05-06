@@ -7,6 +7,8 @@ This PowerShell script will download to your Downloads folder of your user profi
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new?
+1.5 Updated events (Ignite 2015)
+
 1.4 Updated events (Build 2015)
 
 1.3 Updated events (Developer's Guide to Windows 10 Preview, under the "various" section)
