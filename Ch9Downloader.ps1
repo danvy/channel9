@@ -40,9 +40,8 @@ function New-Ch9Format()
 .LINK  
 .EXAMPLE  
 #>
-function New-Ch9EventEdition()
+function New-Ch9EventEdition([string]$Name, [string]$Folder, [string]$Url)
 {
-  param ([string]$Name, [string]$Folder, [string]$Url)
   $eventEdition = new-object PSObject
   $eventEdition | add-member -type NoteProperty -Name Name -Value $Name
   $eventEdition | add-member -type NoteProperty -Name Folder -Value $Folder
@@ -58,9 +57,8 @@ function New-Ch9EventEdition()
 .LINK  
 .EXAMPLE  
 #>
-function New-Ch9Event()
+function New-Ch9Event([string]$Name)
 {
-  param ([string]$Name)
   $event = new-object PSObject
   $event | add-member -type NoteProperty -Name Name -Value $Name
   $event | add-member -type NoteProperty -Name Editions -Value @()
@@ -142,37 +140,77 @@ function New-Ch9Events()
 .LINK  
 .EXAMPLE  
 #>
-function Ch9Download()
+function DownloadFile([string]$url, [string]$file)
+{ 
+    $fileName = split-path $file -leaf
+    if (Test-Path $file -pathType leaf)
+    {
+        "'" + $fileName + "' already exists."
+        return
+	}
+    $uri = New-Object "System.Uri" "$url" 
+    $request = [System.Net.HttpWebRequest]::Create($uri) 
+    $request.set_Timeout(10000)
+    $response = $request.GetResponse() 
+    $length = $response.get_ContentLength()
+    $urlStream = $response.GetResponseStream()
+    $temp = $file + ".temp" 
+    $fileStream = New-Object -TypeName System.IO.FileStream -ArgumentList $temp, Create 
+    $buffer = new-object byte[] 32768
+    $count = $urlStream.Read($buffer, 0, $buffer.length) 
+    $downloaded = $count 
+    while ($count -gt 0)
+    { 
+        $progress = $downloaded / $length * 100
+        Write-Progress -id 2 -parentid 1 -Activity "Downloading '$fileName' ($downloaded/$length)" -PercentComplete $progress
+        $fileStream.Write($buffer, 0, $count)
+        $count = $urlStream.Read($buffer, 0, $buffer.length) 
+        $downloaded = $downloaded + $count 
+    } 
+    if ($fileStream)
+    {
+        $fileStream.Flush()
+        $fileStream.Close()
+        $fileStream.Dispose()
+    } 
+    if ($urlStream)
+    {
+        $urlStream.Dispose()
+    }
+    rename-item $temp -newname $file
+    "$fileName done ($downloaded bytes)" 
+}
+<#
+.SYNOPSIS
+.DESCRIPTION
+.NOTES  
+.LINK  
+.EXAMPLE  
+#>
+function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 {
-    param ([string]$RssLink, [string]$Folder, [string]$Extension)
-    $dest = [environment]::GetFolderPath("UserProfile") + "\Downloads\" + $Folder
-    [IO.Directory]::CreateDirectory($dest) | Out-Null
+    $folder = [environment]::GetFolderPath("UserProfile") + "\Downloads\" + $DestFolder
+    [IO.Directory]::CreateDirectory($folder) | Out-Null
     $re = ':|\?|/|\\|\||\*|<|>|"|\.'
     "Retrieving the RSS Feed (" + $RssLink + ")"
     $wc = New-Object System.Net.WebClient
     $wc.Encoding = [System.Text.Encoding]::UTF8
     $rss = ([xml]$wc.downloadstring($RssLink))
-    "" + $rss.rss.channel.item.Count + " files to download."
+    $total = $rss.rss.channel.item.length 
     foreach($item in $rss.rss.channel.item)
     {
 	    $link = New-Object System.Uri($item.link)
 	    $id = $link.Segments[$link.Segments.Length - 1].Replace($Extension, '')
         $title = $item.title -replace $pat, ''
 	    $file = (($id + ' ' + $title) -replace $re, '') + $Extension
-	    $destFile = $dest + '\' + $file
-	    if (Test-Path $destFile -pathType leaf)
-        {
-		    "File " + $file + " already exists. Skipped."
-	    }
-	    else
-        {
-		    "Downloading " + $file + "..."
-		    $url = New-Object System.Uri($item.enclosure.url)
-		    (New-Object System.Net.WebClient).DownloadFile($url, $destFile) 
-	    }
+	    $fullFile = $folder + '\' + $file
+        $current = $current + 1
+        $progress = $current / $rss.rss.channel.item.length * 100
+        Write-Progress -id 1 -Activity "Downloading Channel9 content ($current/$total)" -PercentComplete $progress
+        DownloadFile $item.enclosure.url $fullFile
     }
 }
-"Channel9 Content Downloader 1.5 by Alex Danvy @danvy"
+"Channel9 Content Downloader 2.0 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"

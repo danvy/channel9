@@ -7,17 +7,27 @@ This PowerShell script will download to your Downloads folder of your user profi
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new?
-1.5 Updated events (Ignite 2015)
+###2.0
+- Added progress for downloads
+- Resume downloads
 
-1.4 Updated events (Build 2015)
+###1.5
+- Updated events (Ignite 2015)
 
-1.3 Updated events (Developer's Guide to Windows 10 Preview, under the "various" section)
+###1.4
+- Updated events (Build 2015)
 
-1.2 Updated events (WinHEC & TechEd)
+###1.3
+- Updated events (Developer's Guide to Windows 10 Preview, under the "various" section)
 
-1.1 Added Visual Studio events to the list http://channel9.msdn.com/Events/Visual-Studio
+###1.2
+- Updated events (WinHEC & TechEd)
 
-1.0 Initial release
+###1.1
+- Added Visual Studio events to the list http://channel9.msdn.com/Events/Visual-Studio
+
+###1.0
+- Initial release
 
 ##Q&A
 #### Q: When I execute the script on my machine, I get a "File cannot be loaded because the execution of scripts is disabled on this system" error
