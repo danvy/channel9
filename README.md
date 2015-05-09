@@ -10,6 +10,7 @@ Once at home, please, give some feedback about the content on the Channel9 websi
 ###2.0
 - Added progress for downloads
 - Resume downloads
+![Screen shot](https://github.com/danvy/channel9/blob/master/img/Ch9Downloader2.jpg)
 
 ###1.5
 - Updated events (Ignite 2015)
