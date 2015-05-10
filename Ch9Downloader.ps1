@@ -178,7 +178,7 @@ function DownloadFile([string]$url, [string]$file)
         $urlStream.Dispose()
     }
     rename-item $temp -newname $file
-    "$fileName done ($downloaded bytes)" 
+    "'$fileName' done ($downloaded bytes)" 
 }
 <#
 .SYNOPSIS
@@ -192,7 +192,7 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
     $folder = [environment]::GetFolderPath("UserProfile") + "\Downloads\" + $DestFolder
     [IO.Directory]::CreateDirectory($folder) | Out-Null
     $re = ':|\?|/|\\|\||\*|<|>|"|\.'
-    "Retrieving the RSS Feed (" + $RssLink + ")"
+    "Retrieving the RSS Feed '" + $RssLink + "'"
     $wc = New-Object System.Net.WebClient
     $wc.Encoding = [System.Text.Encoding]::UTF8
     $rss = ([xml]$wc.downloadstring($RssLink))
