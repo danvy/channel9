@@ -8,6 +8,8 @@ Once at home, please, give some feedback about the content on the Channel9 websi
 
 ##What's new?
 ###2.0
+- Updated events (Microsoft Edge Web Summit 2015, Devices and Networking Summit 2015)
+###2.0
 - Added progress for downloads
 - Resume downloads
 

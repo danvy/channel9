@@ -129,6 +129,8 @@ function New-Ch9Events()
 	$event = New-Ch9Event "Various"
     $edition = New-Ch9EventEdition "Developer's Guide to Windows 10 Preview" "DevGuideWin10Preview" "https://channel9.msdn.com/Series/Developers-Guide-to-Windows-10-Preview/RSS/"
     $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Microsoft Edge Web Summit 2015" "EdgeWebSummit2015" "https://channel9.msdn.com/Events/WebPlatformSummit/2015/RSS/"
+    $event.Editions += $edition
 	$events += $event
     
 	Return $events
