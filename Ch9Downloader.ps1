@@ -131,6 +131,8 @@ function New-Ch9Events()
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Microsoft Edge Web Summit 2015" "EdgeWebSummit2015" "https://channel9.msdn.com/Events/WebPlatformSummit/2015/RSS/"
     $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Devices and Networking Summit 2015" "DevicesSummit2015" "https://channel9.msdn.com/Events/Microsoft-Research/Devices-and-Networking-Summit-2015/RSS/"
+    $event.Editions += $edition
 	$events += $event
     
 	Return $events
@@ -212,7 +214,7 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
         DownloadFile $item.enclosure.url $fullFile
     }
 }
-"Channel9 Content Downloader 2.0 by Alex Danvy @danvy"
+"Channel9 Content Downloader 2.1 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"
