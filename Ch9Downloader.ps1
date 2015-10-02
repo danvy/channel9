@@ -75,6 +75,15 @@ function New-Ch9Events()
 {
     $events = @()
 
+    $event = New-Ch9Event "Azure"
+    $edition = New-Ch9EventEdition "AzureCon 2015" "AzureCon2015" "https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Azure Camp du 7 juillet 2015" "AzureCampJuillet2015" "https://channel9.msdn.com/Events/Microsoft-Azure/Azure-Camp-du-7-juillet/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Microsoft Azure Conference 2015" "AzureConference2015" "https://channel9.msdn.com/Events/Microsoft-Azure/mac2015/RSS/"
+    $event.Editions += $edition
+    $events += $event
+
     $event = New-Ch9Event "Build"
     $edition = New-Ch9EventEdition "Build 2015" "Build2015" "http://s.ch9.ms/Events/Build/2015/RSS/"
     $event.Editions += $edition
@@ -113,6 +122,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Visual Studio"
+    $edition = New-Ch9EventEdition "Visual Studio 2015 Final Release Event" "VS2015FinalRelease" "https://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2015-Final-Release-Event/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Connect(); Microsoft Visual Studio vNext & Azure" "Connect2014" "http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Cross-platform development" "Cross-platform2014" "http://channel9.msdn.com/Events/Visual-Studio/Cross-platform-development/RSS/"
