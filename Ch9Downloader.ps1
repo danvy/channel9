@@ -225,7 +225,7 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
         DownloadFile $item.enclosure.url $fullFile
     }
 }
-"Channel9 Content Downloader 2.1 by Alex Danvy @danvy"
+"Channel9 Content Downloader 2.2 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"
