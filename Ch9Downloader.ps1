@@ -138,6 +138,12 @@ function New-Ch9Events()
     $events += $event
     
 	$event = New-Ch9Event "Various"
+    $edition = New-Ch9EventEdition "DEVintersection 2015" "DEVintersection2015" "https://channel9.msdn.com/Events/DEVintersection/DEVintersection-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "TechDays Sweden 2015" "TechDaysSweden2015" "https://channel9.msdn.com/Events/TechDays-Sweden/TechDays-Sweden-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Windows 10 IT Pro Readiness" "Windows10ITProReadiness" "https://channel9.msdn.com/Events/MVP-Virtual-Conference/Windows-10-IT-Pro-Readiness/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Developer's Guide to Windows 10 Preview" "DevGuideWin10Preview" "https://channel9.msdn.com/Series/Developers-Guide-to-Windows-10-Preview/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Microsoft Edge Web Summit 2015" "EdgeWebSummit2015" "https://channel9.msdn.com/Events/WebPlatformSummit/2015/RSS/"
