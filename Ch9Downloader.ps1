@@ -113,6 +113,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Visual Studio"
+    $edition = New-Ch9EventEdition "Connect(); // 2015" "Connect2015" "https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Connect(); Microsoft Visual Studio vNext & Azure" "Connect2014" "http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Cross-platform development" "Cross-platform2014" "http://channel9.msdn.com/Events/Visual-Studio/Cross-platform-development/RSS/"
@@ -210,7 +212,7 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
         DownloadFile $item.enclosure.url $fullFile
     }
 }
-"Channel9 Content Downloader 2.0 by Alex Danvy @danvy"
+"Channel9 Content Downloader 2.1 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"

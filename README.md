@@ -7,6 +7,9 @@ This PowerShell script will download to your Downloads folder of your user profi
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new?
+###2.1
+- Updated events (Connect 2015)
+
 ###2.0
 - Added progress for downloads
 - Resume downloads
