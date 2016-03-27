@@ -85,6 +85,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Build"
+    $edition = New-Ch9EventEdition "Build 2015" "Build2015" "https://s.ch9.ms/Events/Build/2016/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2015" "Build2015" "http://s.ch9.ms/Events/Build/2015/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2014" "Build2014" "http://s.ch9.ms/Events/Build/2014/RSS/"
@@ -94,6 +96,34 @@ function New-Ch9Events()
     $edition = New-Ch9EventEdition "Build 2012" "Build2012" "http://s.ch9.ms/Events/Build/2012/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2011" "Build2011" "http://s.ch9.ms/Events/Build/2011/RSS/"
+    $event.Editions += $edition
+    $events += $event
+
+    $event = New-Ch9Event "Ignite"
+    $edition = New-Ch9EventEdition "Ignite 2015 Australia" "Ignite2015Australia" "https://s.ch9.ms/Events/Ignite/Australia-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Ignite 2015 China" "Ignite2015China" "https://s.ch9.ms/Events/Ignite/Microsoft-Ignite-China-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Ignite 2015 New Zealand" "Ignite2015NewZealand" "https://s.ch9.ms/Events/Ignite/Microsoft-Ignite-New-Zealand-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Ignite 2015" "Ignite2015" "http://channel9.msdn.com/Events/Ignite/2015/RSS/"
+    $event.Editions += $edition
+    $events += $event
+
+    $event = New-Ch9Event "Shows"
+    $edition = New-Ch9EventEdition "Azure Friday" "AzureFriday" "https://s.ch9.ms/Shows/Azure-Friday/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Game Dev Show" "GameDevShow" "https://s.ch9.ms/Shows/gamedev/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Microsoft Imagine" "MicrosoftImagine" "https://s.ch9.ms/Blogs/Microsoft-Imagine/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "MS Dev Show" "MSDevShow" "https://s.ch9.ms/Shows/msdevshow/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "The Maker Show" "TheMakerShow" "https://s.ch9.ms/Shows/themakershow/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "This Week On Channel 9" "ThisWeekOnChannel9" "https://s.ch9.ms/Shows/This+Week+On+Channel+9/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Visual Studio Toolbox" "VisualStudioToolbox" "https://s.ch9.ms/Shows/Visual-Studio-Toolbox/RSS/"
     $event.Editions += $edition
     $events += $event
 
@@ -116,11 +146,21 @@ function New-Ch9Events()
     $event.Editions += $edition
     $events += $event
     
-    $event = New-Ch9Event "Ignite"
-    $edition = New-Ch9EventEdition "Ignite 2015" "Ignite2015" "    http://channel9.msdn.com/Events/Ignite/2015/RSS/"
+	$event = New-Ch9Event "Various"
+    $edition = New-Ch9EventEdition "DEVintersection 2015" "DEVintersection2015" "https://channel9.msdn.com/Events/DEVintersection/DEVintersection-2015/RSS/"
     $event.Editions += $edition
-    $events += $event
-
+    $edition = New-Ch9EventEdition "TechDays Sweden 2015" "TechDaysSweden2015" "https://channel9.msdn.com/Events/TechDays-Sweden/TechDays-Sweden-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Windows 10 IT Pro Readiness" "Windows10ITProReadiness" "https://channel9.msdn.com/Events/MVP-Virtual-Conference/Windows-10-IT-Pro-Readiness/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Developer's Guide to Windows 10 Preview" "DevGuideWin10Preview" "https://channel9.msdn.com/Series/Developers-Guide-to-Windows-10-Preview/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Microsoft Edge Web Summit 2015" "EdgeWebSummit2015" "https://channel9.msdn.com/Events/WebPlatformSummit/2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Devices and Networking Summit 2015" "DevicesSummit2015" "https://channel9.msdn.com/Events/Microsoft-Research/Devices-and-Networking-Summit-2015/RSS/"
+    $event.Editions += $edition
+	$events += $event
+    
     $event = New-Ch9Event "Visual Studio"
     $edition = New-Ch9EventEdition "Visual Studio 2015 Final Release Event" "VS2015FinalRelease" "https://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2015-Final-Release-Event/RSS/"
     $event.Editions += $edition
@@ -136,21 +176,6 @@ function New-Ch9Events()
     $edition = New-Ch9EventEdition "WinHEC Shenzhen March 18-19" "WinHEC2015" "http://channel9.msdn.com/Events/WinHEC/2015/RSS/"
     $event.Editions += $edition
     $events += $event
-    
-	$event = New-Ch9Event "Various"
-    $edition = New-Ch9EventEdition "DEVintersection 2015" "DEVintersection2015" "https://channel9.msdn.com/Events/DEVintersection/DEVintersection-2015/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "TechDays Sweden 2015" "TechDaysSweden2015" "https://channel9.msdn.com/Events/TechDays-Sweden/TechDays-Sweden-2015/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Windows 10 IT Pro Readiness" "Windows10ITProReadiness" "https://channel9.msdn.com/Events/MVP-Virtual-Conference/Windows-10-IT-Pro-Readiness/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Developer's Guide to Windows 10 Preview" "DevGuideWin10Preview" "https://channel9.msdn.com/Series/Developers-Guide-to-Windows-10-Preview/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Microsoft Edge Web Summit 2015" "EdgeWebSummit2015" "https://channel9.msdn.com/Events/WebPlatformSummit/2015/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Devices and Networking Summit 2015" "DevicesSummit2015" "https://channel9.msdn.com/Events/Microsoft-Research/Devices-and-Networking-Summit-2015/RSS/"
-    $event.Editions += $edition
-	$events += $event
     
 	Return $events
 }
@@ -231,7 +256,7 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
         DownloadFile $item.enclosure.url $fullFile
     }
 }
-"Channel9 Content Downloader 2.2 by Alex Danvy @danvy"
+"Channel9 Content Downloader 2.4 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
 #Event
 "Select the event on Channel9:"

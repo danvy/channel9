@@ -7,6 +7,9 @@ This PowerShell script will download to your Downloads folder of your user profi
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new?
+###2.4
+- Updated events (Build 2016, Azure Friday, Game Dev Show, Microsoft Imagine, MS Dev Show, This week on Channel9, Visual Studio Toolbox)
+
 ###2.3
 - Updated events (DEVintersection 2015, TechDays Sweden 2015 and Windows 10 IT Pro Readiness under Various section)
 
