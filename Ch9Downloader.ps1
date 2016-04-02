@@ -1,3 +1,7 @@
+param
+(
+    [string]$baseFolder = ""
+);
 <#
 .SYNOPSIS
     Return supported media formats by default
@@ -237,7 +241,7 @@ function DownloadFile([string]$url, [string]$file)
 #>
 function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 {
-    $folder = [environment]::GetFolderPath("UserProfile") + "\Downloads\" + $DestFolder
+    $folder = Join-Path $baseFolder $DestFolder
     [IO.Directory]::CreateDirectory($folder) | Out-Null
     $re = ':|\?|/|\\|\||\*|<|>|"|\.'
     "Retrieving the RSS Feed '" + $RssLink + "'"
@@ -258,8 +262,13 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
         DownloadFile $item.enclosure.url $fullFile
     }
 }
-"Channel9 Content Downloader 2.4 by Alex Danvy @danvy"
+if (!$baseFolder)
+{
+    $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
+}
+"Channel9 Content Downloader 2.5 by Alex Danvy @danvy"
 "Source code available on http://github.com/danvy/channel9"
+
 #Event
 "Select the event on Channel9:"
 $events = New-Ch9Events
@@ -268,7 +277,7 @@ for ($i=0; $i -lt $events.Count; $i++)
     "[" + ($i + 1) + "] " + $events[$i].Name
 }
 "[0] Exit"
-Write-Host -NoNewLine ("[0-" + $events.Count + "]? ")
+Write-Output -NoNewLine ("[0-" + $events.Count + "]? ")
 $eventNumber = Read-Host
 $eventNumber -as [int] | Out-Null
 if (($eventNumber  -gt 0) -and ($eventNumber -le $events.Count))
@@ -281,7 +290,7 @@ if (($eventNumber  -gt 0) -and ($eventNumber -le $events.Count))
         "[" + ($i + 1) + "] " + $eventSelected.Editions[$i].Name
     }
     "[0] Exit"
-    Write-Host -NoNewLine ("[0-" + $eventSelected.Editions.Count + "]? ")
+    Write-Output -NoNewLine ("[0-" + $eventSelected.Editions.Count + "]? ")
     $editionNumber = Read-Host
     $editionNumber -as [int] | Out-Null
     if (($editionNumber  -gt 0) -and ($editionNumber -le $eventSelected.Editions.Count))
@@ -294,7 +303,7 @@ if (($eventNumber  -gt 0) -and ($eventNumber -le $events.Count))
             "[" + ($i + 1) + "] " + $editionSelected.Formats[$i].Name
         }
         "[0] Exit"
-        Write-Host -NoNewLine ("[0-" + $editionSelected.Formats.Count + "]? ")
+        Write-Output -NoNewLine ("[0-" + $editionSelected.Formats.Count + "]? ")
         $formatNumber = Read-Host
         $formatNumber -as [int] | Out-Null
         if (($formatNumber  -gt 0) -and ($formatNumber -le $editionSelected.Formats.Count))
@@ -304,4 +313,3 @@ if (($eventNumber  -gt 0) -and ($eventNumber -le $events.Count))
         }
     }
 }
-
