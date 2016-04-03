@@ -89,7 +89,7 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Build"
-    $edition = New-Ch9EventEdition "Build 2016" "Build2015" "https://s.ch9.ms/Events/Build/2016/RSS/"
+    $edition = New-Ch9EventEdition "Build 2016" "Build2016" "https://s.ch9.ms/Events/Build/2016/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2015" "Build2015" "http://s.ch9.ms/Events/Build/2015/RSS/"
     $event.Editions += $edition
