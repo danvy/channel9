@@ -46,6 +46,11 @@ Once at home, please, give some feedback about the content on the Channel9 websi
 ###1.0
 - Initial release
 
+##Requirements
+This Powershell script requires :
+- Powershell https://msdn.microsoft.com/en-us/powershell/mt173057.aspx
+- the fantastic YouTube-DL https://rg3.github.io/youtube-dl/
+
 ##Q&A
 #### Q: When I execute the script on my machine, I get a "File cannot be loaded because the execution of scripts is disabled on this system" error
 A: You might have to change the execution policy of your machine. Type this under PowerShell "Set-ExecutionPolicy Unrestricted". See the documentation http://technet.microsoft.com/en-us/library/ee176961.aspx
