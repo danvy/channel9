@@ -103,6 +103,15 @@ function New-Ch9Events()
     $event.Editions += $edition
     $events += $event
 
+    $event = New-Ch9Event "dotnetConf"
+    $edition = New-Ch9EventEdition "dotnetConf 2016" "DotNetConf2016" "https://channel9.msdn.com/Events/dotnetConf/2016/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "dotnetConf 2015" "DotNetConf2015" "https://channel9.msdn.com/Events/dotnetConf/2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "dotnetConf 2014" "DotNetConf2014" "https://channel9.msdn.com/Events/dotnetConf/2014/RSS/"
+    $event.Editions += $edition
+    $events += $event 
+
     $event = New-Ch9Event "Ignite"
     $edition = New-Ch9EventEdition "Ignite 2015 Australia" "Ignite2015Australia" "https://s.ch9.ms/Events/Ignite/Australia-2015/RSS/"
     $event.Editions += $edition
