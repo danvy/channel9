@@ -104,6 +104,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Ignite"
+    $edition = New-Ch9EventEdition "Ignite 2016" "Ignite2016" "https://channel9.msdn.com/Events/Ignite/2016/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Ignite 2015 Australia" "Ignite2015Australia" "https://s.ch9.ms/Events/Ignite/Australia-2015/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Ignite 2015 China" "Ignite2015China" "https://s.ch9.ms/Events/Ignite/Microsoft-Ignite-China-2015/RSS/"
@@ -117,17 +119,25 @@ function New-Ch9Events()
     $event = New-Ch9Event "Shows"
     $edition = New-Ch9EventEdition "Azure Friday" "AzureFriday" "https://s.ch9.ms/Shows/Azure-Friday/RSS/"
     $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Data Exposed" "DataExposed" "https://channel9.msdn.com/Shows/Data-Exposed/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Game Dev Show" "GameDevShow" "https://s.ch9.ms/Shows/gamedev/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Microsoft Imagine" "MicrosoftImagine" "https://s.ch9.ms/Blogs/Microsoft-Imagine/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "MS Dev Show" "MSDevShow" "https://s.ch9.ms/Shows/msdevshow/RSS/"
     $event.Editions += $edition
+    $edition = New-Ch9EventEdition "TechNet Radio" "TechNetRadio" "https://channel9.msdn.com/Shows/TechNet+Radio/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "The Maker Show" "TheMakerShow" "https://s.ch9.ms/Shows/themakershow/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "The Defrag Show" "TheDefragShow" "https://channel9.msdn.com/Shows/The-Defrag-Show/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "This Week On Channel 9" "ThisWeekOnChannel9" "https://s.ch9.ms/Shows/This+Week+On+Channel+9/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Visual Studio Toolbox" "VisualStudioToolbox" "https://s.ch9.ms/Shows/Visual-Studio-Toolbox/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Xamarin Show" "XamarinShow" "https://channel9.msdn.com/Shows/XamarinShow/RSS/"
     $event.Editions += $edition
     $events += $event
 
@@ -266,7 +276,7 @@ if (!$baseFolder)
 {
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
-"Channel9 Content Downloader 2.5 by Alex Danvy @danvy"
+"Channel9 Content Downloader 2.6 by Alex Danvy @danvy http://danvy.tv"
 "Source code available on http://github.com/danvy/channel9"
 
 #Event

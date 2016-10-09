@@ -7,6 +7,9 @@ This PowerShell script will download to your Downloads folder of your user profi
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
 ##What's new?
+###2.6
+- Updated events and shows (Ignite 2016, Data Exposed, TechNet Radio, The Defrag Show and Xamarin Show)
+
 ###2.5
 - Added destination folder on command line. Usage: Ch9Downloader.ps1 d:\downloads
 
