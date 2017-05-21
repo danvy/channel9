@@ -278,7 +278,7 @@ if (!$baseFolder)
 {
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
-"Channel9 Content Downloader 2.6 by Alex Danvy @danvy http://danvy.tv"
+"Channel9 Content Downloader 2.7 by Alex Danvy @danvy http://danvy.tv"
 "Source code available on http://github.com/danvy/channel9"
 
 #Event
