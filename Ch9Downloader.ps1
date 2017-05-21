@@ -89,6 +89,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Build"
+    $edition = New-Ch9EventEdition "Build 2017" "Build2017" "https://s.ch9.ms/Events/Build/2017/RSS/"
+	$event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2016" "Build2016" "https://s.ch9.ms/Events/Build/2016/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2015" "Build2015" "http://s.ch9.ms/Events/Build/2015/RSS/"
@@ -276,7 +278,7 @@ if (!$baseFolder)
 {
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
-"Channel9 Content Downloader 2.6 by Alex Danvy @danvy http://danvy.tv"
+"Channel9 Content Downloader 2.7 by Alex Danvy @danvy http://danvy.tv"
 "Source code available on http://github.com/danvy/channel9"
 
 #Event
