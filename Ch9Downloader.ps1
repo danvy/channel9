@@ -89,6 +89,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Build"
+    $edition = New-Ch9EventEdition "Build 2017" "Build2017" "https://s.ch9.ms/Events/Build/2017/RSS/"
+	$event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2016" "Build2016" "https://s.ch9.ms/Events/Build/2016/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2015" "Build2015" "http://s.ch9.ms/Events/Build/2015/RSS/"
@@ -205,6 +207,7 @@ function New-Ch9Events()
 function DownloadFile([string]$url, [string]$file)
 { 
     $fileName = split-path $file -leaf
+    
     if (Test-Path $file -pathType leaf)
     {
         "'" + $fileName + "' already exists."
@@ -249,6 +252,27 @@ function DownloadFile([string]$url, [string]$file)
 .LINK  
 .EXAMPLE  
 #>
+Function Remove-InvalidFileNameChars {
+  param(
+    [Parameter(Mandatory=$true,
+      Position=0,
+      ValueFromPipeline=$true,
+      ValueFromPipelineByPropertyName=$true)]
+    [String]$Name
+  )
+
+  $invalidChars = [IO.Path]::GetInvalidFileNameChars() -join ''
+  $re = "[{0}]" -f [RegEx]::Escape($invalidChars)
+  return ($Name -replace $re)
+}
+
+<#
+.SYNOPSIS
+.DESCRIPTION
+.NOTES  
+.LINK  
+.EXAMPLE  
+#>
 function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 {
     $folder = Join-Path $baseFolder $DestFolder
@@ -264,8 +288,10 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 	    $link = New-Object System.Uri($item.link)
 	    $id = $link.Segments[$link.Segments.Length - 1].Replace($Extension, '')
         $title = $item.title -replace $pat, ''
-	    $file = (($id + ' ' + $title) -replace $re, '') + $Extension
-	    $fullFile = $folder + '\' + $file
+	    $file = (($id + ' ' + $title) -replace $re, '').Trim() + $Extension
+        $sanitiseFileName = Remove-InvalidFileNameChars $file
+	    $fullFile = $folder + '\' + $sanitiseFileName
+
         $current = $current + 1
         $progress = $current / $rss.rss.channel.item.length * 100
         Write-Progress -id 1 -Activity "Downloading Channel9 content ($current/$total)" -PercentComplete $progress
@@ -276,7 +302,7 @@ if (!$baseFolder)
 {
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
-"Channel9 Content Downloader 2.6 by Alex Danvy @danvy http://danvy.tv"
+"Channel9 Content Downloader 2.7 by Alex Danvy @danvy http://danvy.tv"
 "Source code available on http://github.com/danvy/channel9"
 
 #Event
