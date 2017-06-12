@@ -207,6 +207,7 @@ function New-Ch9Events()
 function DownloadFile([string]$url, [string]$file)
 { 
     $fileName = split-path $file -leaf
+    
     if (Test-Path $file -pathType leaf)
     {
         "'" + $fileName + "' already exists."
@@ -251,6 +252,27 @@ function DownloadFile([string]$url, [string]$file)
 .LINK  
 .EXAMPLE  
 #>
+Function Remove-InvalidFileNameChars {
+  param(
+    [Parameter(Mandatory=$true,
+      Position=0,
+      ValueFromPipeline=$true,
+      ValueFromPipelineByPropertyName=$true)]
+    [String]$Name
+  )
+
+  $invalidChars = [IO.Path]::GetInvalidFileNameChars() -join ''
+  $re = "[{0}]" -f [RegEx]::Escape($invalidChars)
+  return ($Name -replace $re)
+}
+
+<#
+.SYNOPSIS
+.DESCRIPTION
+.NOTES  
+.LINK  
+.EXAMPLE  
+#>
 function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 {
     $folder = Join-Path $baseFolder $DestFolder
@@ -266,8 +288,10 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 	    $link = New-Object System.Uri($item.link)
 	    $id = $link.Segments[$link.Segments.Length - 1].Replace($Extension, '')
         $title = $item.title -replace $pat, ''
-	    $file = (($id + ' ' + $title) -replace $re, '') + $Extension
-	    $fullFile = $folder + '\' + $file
+	    $file = (($id + ' ' + $title) -replace $re, '').Trim() + $Extension
+        $sanitiseFileName = Remove-InvalidFileNameChars $file
+	    $fullFile = $folder + '\' + $sanitiseFileName
+
         $current = $current + 1
         $progress = $current / $rss.rss.channel.item.length * 100
         Write-Progress -id 1 -Activity "Downloading Channel9 content ($current/$total)" -PercentComplete $progress
