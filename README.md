@@ -6,6 +6,7 @@ If just like me, you love the content published on Channel9 and you have a very 
 This PowerShell script will download to your Downloads folder of your user profile file://%userprofile%/downloads/ all the videos and slides of the event of your choice, using the format that fit your needs.
 Once at home, please, give some feedback about the content on the Channel9 website, the authors will appreciate.
 
+<<<<<<< HEAD
 ## What's new?
 ### 2.8
 - Updated events and shows (Azure Red Shirt, Ignite 2017, Build 2017, Connect 2017)
@@ -14,6 +15,13 @@ Once at home, please, give some feedback about the content on the Channel9 websi
 - Updated events and shows (Azure Red Shirt, Ignite 2017, Build 2017, Connect 2017)
 
 ### 2.6
+=======
+##What's new?
+###2.7
+- Updated events and shows (Azure Red Shirt, Ignite 2017, Build 2017, Connect 2017)
+
+###2.6
+>>>>>>> 8fb14084f2392447d775f4757c3df4e3e3ea4598
 - Updated events and shows (Ignite 2016, Data Exposed, TechNet Radio, The Defrag Show and Xamarin Show)
 
 ### 2.5

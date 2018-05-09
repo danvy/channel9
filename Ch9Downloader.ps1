@@ -91,8 +91,11 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Build"
+<<<<<<< HEAD
     $edition = New-Ch9EventEdition "Build 2018" "Build2018" "https://s.ch9.ms/Events/Build/2018/RSS/"
     $event.Editions += $edition
+=======
+>>>>>>> 8fb14084f2392447d775f4757c3df4e3e3ea4598
     $edition = New-Ch9EventEdition "Build 2017" "Build2017" "https://s.ch9.ms/Events/Build/2017/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2016" "Build2016" "https://s.ch9.ms/Events/Build/2016/RSS/"
@@ -110,7 +113,11 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Ignite"
+<<<<<<< HEAD
     $edition = New-Ch9EventEdition "Ignite 2017" "Ignite2016" "https://channel9.msdn.com/Events/Ignite/2017/RSS/"
+=======
+    $edition = New-Ch9EventEdition "Ignite 2017" "Ignite2017" "https://channel9.msdn.com/Events/Ignite/2017/RSS/"
+>>>>>>> 8fb14084f2392447d775f4757c3df4e3e3ea4598
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Ignite 2016" "Ignite2016" "https://channel9.msdn.com/Events/Ignite/2016/RSS/"
     $event.Editions += $edition
@@ -125,9 +132,15 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Connect()"
+<<<<<<< HEAD
     $edition = New-Ch9EventEdition "Connect(); // 2017" "Connect2017" "https://channel9.msdn.com/Events/Connect/2017/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Connect(); // 2016" "Connect2016" "https://channel9.msdn.com/Events/Connect/2016/RSS/"
+=======
+    $edition = New-Ch9EventEdition "Connect() 2017" "Connect2017" "https://channel9.msdn.com/Events/Connect/2017/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Connect() 2016" "Connect2016" "https://channel9.msdn.com/Events/Connect/2016/RSS/"
+>>>>>>> 8fb14084f2392447d775f4757c3df4e3e3ea4598
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Connect(); // 2015" "Connect2015" "https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/RSS/"
     $event.Editions += $edition
@@ -291,7 +304,11 @@ if (!$baseFolder)
     [Environment+SpecialFolder]::GetNames([Environment+SpecialFolder])
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
+<<<<<<< HEAD
 "Channel9 Content Downloader 2.8 by Alex Danvy @danvy http://danvy.tv"
+=======
+"Channel9 Content Downloader 2.7 by Alex Danvy @danvy http://danvy.tv"
+>>>>>>> 8fb14084f2392447d775f4757c3df4e3e3ea4598
 "Source code available on http://github.com/danvy/channel9"
 
 #Event
