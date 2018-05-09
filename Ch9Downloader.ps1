@@ -80,6 +80,8 @@ function New-Ch9Events()
     $events = @()
 
     $event = New-Ch9Event "Azure"
+    $edition = New-Ch9EventEdition "Azure Red Shirt Dev Tour NYC 2017" "RedShirtNYC2017" "https://channel9.msdn.com/Events/Microsoft-Azure/Azure-Red-Shirt-Dev-Tour-NYC-2017/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "AzureCon 2015" "AzureCon2015" "https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Azure Camp du 7 juillet 2015" "AzureCampJuillet2015" "https://channel9.msdn.com/Events/Microsoft-Azure/Azure-Camp-du-7-juillet/RSS/"
@@ -89,6 +91,10 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Build"
+    $edition = New-Ch9EventEdition "Build 2018" "Build2018" "https://s.ch9.ms/Events/Build/2018/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Build 2017" "Build2017" "https://s.ch9.ms/Events/Build/2017/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2016" "Build2016" "https://s.ch9.ms/Events/Build/2016/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Build 2015" "Build2015" "http://s.ch9.ms/Events/Build/2015/RSS/"
@@ -104,6 +110,8 @@ function New-Ch9Events()
     $events += $event
 
     $event = New-Ch9Event "Ignite"
+    $edition = New-Ch9EventEdition "Ignite 2017" "Ignite2016" "https://channel9.msdn.com/Events/Ignite/2017/RSS/"
+    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Ignite 2016" "Ignite2016" "https://channel9.msdn.com/Events/Ignite/2016/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Ignite 2015 Australia" "Ignite2015Australia" "https://s.ch9.ms/Events/Ignite/Australia-2015/RSS/"
@@ -115,6 +123,16 @@ function New-Ch9Events()
     $edition = New-Ch9EventEdition "Ignite 2015" "Ignite2015" "http://channel9.msdn.com/Events/Ignite/2015/RSS/"
     $event.Editions += $edition
     $events += $event
+
+    $event = New-Ch9Event "Connect()"
+    $edition = New-Ch9EventEdition "Connect(); // 2017" "Connect2017" "https://channel9.msdn.com/Events/Connect/2017/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Connect(); // 2016" "Connect2016" "https://channel9.msdn.com/Events/Connect/2016/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Connect(); // 2015" "Connect2015" "https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/RSS/"
+    $event.Editions += $edition
+    $edition = New-Ch9EventEdition "Connect(); Microsoft Visual Studio vNext & Azure" "Connect2014" "http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/RSS/"
+    $event.Editions += $edition
 
     $event = New-Ch9Event "Shows"
     $edition = New-Ch9EventEdition "Azure Friday" "AzureFriday" "https://s.ch9.ms/Shows/Azure-Friday/RSS/"
@@ -176,11 +194,7 @@ function New-Ch9Events()
 	$events += $event
     
     $event = New-Ch9Event "Visual Studio"
-    $edition = New-Ch9EventEdition "Connect(); // 2015" "Connect2015" "https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/RSS/"
-    $event.Editions += $edition
     $edition = New-Ch9EventEdition "Visual Studio 2015 Final Release Event" "VS2015FinalRelease" "https://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2015-Final-Release-Event/RSS/"
-    $event.Editions += $edition
-    $edition = New-Ch9EventEdition "Connect(); Microsoft Visual Studio vNext & Azure" "Connect2014" "http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/RSS/"
     $event.Editions += $edition
     $edition = New-Ch9EventEdition "Cross-platform development" "Cross-platform2014" "http://channel9.msdn.com/Events/Visual-Studio/Cross-platform-development/RSS/"
     $event.Editions += $edition
@@ -274,9 +288,10 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 }
 if (!$baseFolder)
 {
+    [Environment+SpecialFolder]::GetNames([Environment+SpecialFolder])
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
-"Channel9 Content Downloader 2.6 by Alex Danvy @danvy http://danvy.tv"
+"Channel9 Content Downloader 2.8 by Alex Danvy @danvy http://danvy.tv"
 "Source code available on http://github.com/danvy/channel9"
 
 #Event
