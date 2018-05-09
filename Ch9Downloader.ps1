@@ -288,7 +288,7 @@ function Ch9Download([string]$RssLink, [string]$DestFolder, [string]$Extension)
 }
 if (!$baseFolder)
 {
-    [Environment+SpecialFolder]::GetNames([Environment+SpecialFolder])
+    #[Environment+SpecialFolder]::GetNames([Environment+SpecialFolder])
     $baseFolder = Join-Path ([environment]::GetFolderPath("UserProfile")) "Downloads\"
 }
 "Channel9 Content Downloader 2.8 by Alex Danvy @danvy http://danvy.tv"
